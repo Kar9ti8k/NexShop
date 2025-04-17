@@ -23,11 +23,16 @@ export default function Home() {
 
   return (
     <main className='p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-      {loader
-        ? Array(8)
-            .fill()
-            .map((_, i) => <SkeletonLoader key={i} />)
-        : products.map((p) => <ProductCard key={p.id} product={p} />)}
+      {loader ? (
+        // ? Array(8)
+        //     .fill()
+        //     .map((_, i) => <SkeletonLoader key={i} />)
+        <div className='m-[2rem]'>
+          <SkeletonLoader />
+        </div>
+      ) : (
+        products.map((p) => <ProductCard key={p.id} product={p} />)
+      )}
     </main>
   )
 }
